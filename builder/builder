@@ -67,8 +67,9 @@ EOF
 
 chmod +x /start
 ln -nsf /start /exec
-rm -rf $app_dir
-mv $build_root $app_dir
+
+(shopt -s dotglob; rm -rf $app_dir/*)
+(shopt -s dotglob; mv $build_root/* $app_dir/)
 
 # Clean up
 rm -rf /build/
